@@ -3,9 +3,11 @@ require 'rspec/core/formatters/base_text_formatter'
 # useful reference: http://ascii-table.com/ansi-escape-sequences.php
 
 class RspecNumberingFormatter < RSpec::Core::Formatters::BaseTextFormatter
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
   attr_accessor :run_count
+
+  def failure_color(*args); red(*args); end unless method_defined? :failure_color
 
   def start(example_count)
     @pwd = `pwd`
