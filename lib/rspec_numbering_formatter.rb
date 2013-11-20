@@ -3,7 +3,7 @@ require 'rspec/core/formatters/base_text_formatter'
 # useful reference: http://ascii-table.com/ansi-escape-sequences.php
 
 class RspecNumberingFormatter < RSpec::Core::Formatters::BaseTextFormatter
-  VERSION = "0.0.2"
+  VERSION = "0.0.3"
 
   attr_accessor :run_count
 
