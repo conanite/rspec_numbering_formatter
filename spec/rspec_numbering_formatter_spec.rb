@@ -14,15 +14,10 @@ describe RspecNumberingFormatter do
      Failure/Error: (1 + 1).should == 3
        expected: 3
             got: 2 (using ==)
+     # ./spec/sample-specs/second_spec_sample.rb:5:in `block (2 levels) in <top (required)>'
+
 
 *ESC[K    0:00          4 second sample should be true                                                                           ./spec/sample-specs/second_spec_sample.rb:8
-Failures:
-
-  1) second sample should include a broken test
-     Failure/Error: (1 + 1).should == 3
-       expected: 3
-            got: 2 (using ==)
-     # ./spec/sample-specs/second_spec_sample.rb:5:in `block (2 levels) in <top (required)>'
 
 Finished in some seconds
 4 examples, 1 failure

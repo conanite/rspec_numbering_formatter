@@ -10,7 +10,8 @@ class RspecNumberingFormatter < RSpec::Core::Formatters::BaseTextFormatter
   def failure_color(*args); red(*args); end unless method_defined? :failure_color
 
   def start(example_count)
-    @pwd = `pwd`
+    super
+    @cwd = `pwd`
     @start_time = Time.now
     @run_count = 0
     super
@@ -24,18 +25,25 @@ class RspecNumberingFormatter < RSpec::Core::Formatters::BaseTextFormatter
     mins = elapsed / 60
     elapsed = "#{mins}:#{secs.to_s.rjust(2, '0')}"
     @run_count += 1
-    output.print "\r\e[K#{elapsed.rjust(8)} #{@run_count.to_s.rjust(10)} #{example.full_description[0..100].ljust(101)}  #{truncate_pwd(example.location)[0..100]}"
+    output.print "\r\e[K#{elapsed.rjust(8)} #{@run_count.to_s.rjust(10)} #{example.full_description[0..100].ljust(101)}  #{truncate_cwd(example.location)[0..100]}"
   end
 
   def example_failed(example)
     super
     @run_count += 1
     output.puts failure_color("\r\e[K#{@run_count.to_s.rjust(10)} #{example.full_description}")
-    output.puts failure_color("           #{truncate_pwd example.location}")
+    output.puts failure_color("           #{truncate_cwd example.location}")
     dump_failure_info example
+    dump_backtrace example
+    output.puts
   end
 
-  def truncate_pwd str
-    str.sub @pwd, ""
+  def truncate_cwd str
+    str.sub @cwd, ""
   end
+
+  def dump_failures
+    puts
+  end
+
 end
