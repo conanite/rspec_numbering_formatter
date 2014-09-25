@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{ RSpec formatter with more information in less space  }
   gem.homepage      = "https://github.com/conanite/rspec_numbering_formatter"
 
-  gem.add_development_dependency 'rspec', '~> 2.9'
+  gem.add_development_dependency 'rspec', '~> 3.1'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
