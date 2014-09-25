@@ -2,6 +2,8 @@
 
 An rspec formatter that shows elapsed time, example count, example description, and example location, with no scrolling except for errors.
 
+Compatible with rspec 3.1
+
 Output looks something like this:
 
     $ rspec spec --format RspecNumberingFormatter
@@ -31,6 +33,9 @@ Note: (seriously) if your main project has 6,000 rspec examples, like mine does,
 pathological, and you should probably refactor, as I should. This formatter can help you cope
 while you're waiting for the doctor.
 
+Note: this formatter is less helpful when used together with parallel_tests. Everything still
+works, but you lose that smooth satisfying sense of progress because you're getting output from
+N threads all on top of each other at once.
 
 ## Installation
 
@@ -52,6 +57,10 @@ Run rspec thus:
     $ bundle exec rspec spec --format RspecNumberingFormatter
 
 Enjoy the immediate boost to your productivity.
+
+## History
+
+0.1.0: upgrade to depend on rspec 3.1
 
 ## Contributing
 
