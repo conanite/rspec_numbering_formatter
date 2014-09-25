@@ -2,10 +2,10 @@ require 'sample_spec_helper'
 
 describe "second sample" do
   it "should include a broken test" do
-    (1 + 1).should == 3
+    expect((1 + 1)).to eq 3
   end
 
   it "should be true" do
-    true.should == true
+    expect(true).to eq true
   end
 end

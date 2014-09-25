@@ -2,10 +2,10 @@ require 'sample_spec_helper'
 
 describe "first" do
   it "should be nil" do
-    [].first.should == nil
+    expect([].first).to eq nil
   end
 
   it "should be non-nil" do
-    [:a].first.should == :a
+    expect([:a].first).to eq :a
   end
 end
