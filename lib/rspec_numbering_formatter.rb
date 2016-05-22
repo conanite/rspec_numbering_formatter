@@ -5,7 +5,6 @@ require 'rspec/core/formatters/base_text_formatter'
 
 class RspecNumberingFormatter < RSpec::Core::Formatters::BaseTextFormatter
   VERSION = "0.1.0"
-  RSpec::Core::Formatters.register self, :start, :example_passed, :example_failed
 
   attr_accessor :run_count
 
@@ -44,5 +43,6 @@ class RspecNumberingFormatter < RSpec::Core::Formatters::BaseTextFormatter
   def dump_failures notification
     puts
   end
-
 end
+
+RSpec::Core::Formatters.register RspecNumberingFormatter, :example_passed, :example_failed
